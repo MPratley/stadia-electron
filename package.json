@@ -1,9 +1,9 @@
 {
-  "name": "geforcenow-electron",
-  "appId": "com.github.hmlendea.${name}",
-  "productName": "GeForce NOW",
-  "version": "1.1.12",
-  "description": "A Linux desktop web app for GeForce NOW",
+  "name": "stadia-electron",
+  "appId": "com.github.stadia.${name}",
+  "productName": "Stadia",
+  "version": "0.1.0",
+  "description": "A Linux desktop web app for Stadia",
   "main": "scripts/main.js",
   "scripts": {
     "start": "electron --enable-accelerated-mjpeg-decode --enable-accelerated-video --ignore-gpu-blacklist --enable-native-gpu-memory-buffers --enable-gpu-rasterization .",
@@ -12,11 +12,7 @@
   "build": {
     "linux": {
       "target": [
-        "zip",
-        "AppImage",
-        "deb",
-        "apk",
-        "snap"
+        "flatpak"
       ],
       "category": "Games",
       "artifactName": "${name}_${version}_linux.${ext}"
@@ -27,22 +23,17 @@
         "audio-record",
         "joystick"
       ]
-    },
-    "extraFiles": [
-      "com.github.hmlendea.${name}.desktop"
-    ]
+    }
   },
-  "repository": "https://github.com/hmlendea/geforcenow-electron",
+  "repository": "https://github.com/mpratley/stadia-electron",
   "keywords": [
     "Electron",
-    "gfn",
-    "geforcenow",
-    "geforce-now"
+    "stadia"
   ],
-  "author": "Horațiu Mlendea <Horatiu.Mlendea@ProtonMail.com>",
+  "author": "Marcus Pratley <marcuspratley@gmail.com>",
   "license": "GPL-3.0",
   "devDependencies": {
-    "electron": "^15.3.0",
-    "electron-builder": "^22.13.1"
+    "electron": "^16.0.6",
+    "electron-builder": "^22.14.5"
   }
 }

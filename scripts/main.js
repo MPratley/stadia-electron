@@ -8,6 +8,7 @@ app.commandLine.appendSwitch("enable-features", "VaapiVideoDecoder");
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
+    autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: false,
@@ -15,7 +16,7 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadURL("https://play.geforcenow.com");
+  mainWindow.loadURL("https://stadia.google.com/home");
 
   /*
   uncomment this to debug any errors with loading GFN landing page
@@ -44,28 +45,6 @@ app.whenReady().then(() => {
     } else {
       BrowserWindow.getAllWindows()[0].setFullScreen(true);
       isFullScreen = true;
-    }
-  });
-});
-
-app.on("browser-window-created", function (e, window) {
-  window.setBackgroundColor("#1A1D1F");
-  window.setMenu(null);
-  window.webContents.setUserAgent(userAgent);
-
-  window.on("leave-full-screen", function (e, win) {
-    if (isFullScreen) {
-      BrowserWindow.getAllWindows()[0].setFullScreen(true);
-    }
-  });
-
-  window.on("page-title-updated", function (e, title) {
-    if (title.includes("on GeForce NOW")) {
-      window.setFullScreen(true);
-      isFullScreen = true;
-    } else {
-      window.setFullScreen(false);
-      isFullScreen = false;
     }
   });
 });
